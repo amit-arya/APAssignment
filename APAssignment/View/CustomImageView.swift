@@ -17,7 +17,7 @@ struct CustomImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: geo.size.width, height: geo.size.width/0.65)
+                    .frame(width: geo.size.width)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
@@ -27,14 +27,14 @@ struct CustomImageView: View {
             } else {
                 RoundedRectangle(cornerRadius: 15)
                     .fill(Color.gray.opacity(0.9))
-                    .frame(width: geo.size.width, height: geo.size.width / 0.65)
+                    .frame(width: geo.size.width)
                     .overlay {
                         RoundedRectangle(cornerRadius: 15)
                             .stroke(.blue, lineWidth: 1)
                     }
             }
         }
-        .aspectRatio(0.65, contentMode: .fit)
+        .aspectRatio(1, contentMode: .fit)
         .onAppear {
             imageLoader.loadImage(from: imageModel.imageUrl)
         }
